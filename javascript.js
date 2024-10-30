@@ -21,7 +21,7 @@ elements1.forEach(element => {
 const picsDiv = document.querySelector(".pics");
 let arr = [];
 for (let i = 1; i < 158; i++){
-   arr.push(`../images/photo (${i}).jpg`)
+   arr.push(`images/photo (${i}).jpg`)
    let pic = document.createElement("img");
    let modal = document.createElement("div");
    let bigdiv = document.createElement("div");

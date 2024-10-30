@@ -32,6 +32,7 @@ body, *{
 #module{
   display: flex;
   justify-content: center;
+  gap: 3%;
 }
 
 .header{
@@ -43,12 +44,11 @@ body, *{
 }
 
 .header-img{
-    width: 300px;
-    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     position: relative;
-    margin: 5%;   
+    margin-top: 5%;  
+    align-items :center; 
 }
 
 .circle-div{
@@ -88,7 +88,7 @@ body, *{
 }
 
 .header h1{
-    margin: 4%;
+    /* margin: 4%; */
     font-size: 69px;
     font-family: "Italiana", sans-serif;
   font-weight: 400;
@@ -106,7 +106,8 @@ body, *{
     font-family: sans-serif;
     font-weight: 100;
     font-size:medium;
-    color: #b1b1b1;    
+    color: #b1b1b1; 
+       
 }
 
 .pro{
@@ -330,10 +331,10 @@ body, *{
   .pics {
     grid-template-columns: auto auto auto ;
    }
-   .header-img{
+   /* .header-img{
     width: 150px;
     height: 150px;   
-}
+} */
 .info h2{
   font-size: x-large;
 }
@@ -376,17 +377,12 @@ body, *{
   }
 
   .fade-in1{
-    /* display: none; */
+    display: none;
     /* width:max-content ; */
-    height: 200px;
-    width: 200px;
+    /* height: 200px;
+    width: 200px; */
   }
-
-  .header-img{
-    width: 30%;
-    height: 30%;   
-}
-
+ 
 
 }
 
@@ -399,7 +395,7 @@ body, *{
     width: 450px;
     height: 300px;
   }
-  
+ 
 
   .pics {
     grid-template-columns: auto auto ;
@@ -423,9 +419,8 @@ body, *{
     font-size: 35px;
   }
  
-  .header-img{
-    width: 30%;
-    height: 30%;   
+.header h1{
+  font-size: 20px;
 }
 
 .info p{
@@ -434,3 +429,5 @@ body, *{
 
 
 }
+
+
