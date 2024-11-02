@@ -30,9 +30,9 @@ body, *{
     /* transform: scale(1.1); */
 }
 #module{
-  display: flex;
-  justify-content: center;
-  gap: 3%;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* gap: 3%; */
 }
 
 .header{
@@ -138,13 +138,14 @@ body, *{
 
 .after-header{
     position: relative;
-    margin-bottom: 30%;
+    padding-bottom: 30%;
     margin-top: 7%;
+    overflow:hidden;
 }
 
 
 .infomations {
-    background-color: rgba(136, 4, 4, 0.445);
+    background-color: rgba(251, 132, 132, 0.508);
     /* height: 250px; */
     width: 50%;
     /* margin: auto; */
@@ -326,15 +327,43 @@ body, *{
   cursor: pointer;
 }
 
+.comment{
+  border-top: 1px solid #b1b1b1;
+  padding: 20px 5px;
+}
+
+.comment h1{
+  font-weight: 500;
+}
+
+/* hides the checkbox */
+.likes {
+  display: none;
+}
+
+/* changes the color when selected */
+.likes:checked ~ label {
+  color: red;
+}
+
+
+.likes ~ label{
+  color: #d0cfcf;
+}
+
+/* for styling purpose only */
+label {
+  /* display: block; */
+  /* font-size: 2em; */
+}
+
+
 
 @media screen and (max-width: 1025px) {
   .pics {
     grid-template-columns: auto auto auto ;
    }
-   /* .header-img{
-    width: 150px;
-    height: 150px;   
-} */
+ 
 .info h2{
   font-size: x-large;
 }
@@ -351,6 +380,9 @@ body, *{
 .header h2{ 
   font-size:small;
 }
+
+
+
 }
 
 
@@ -372,15 +404,9 @@ body, *{
     border-radius: 10px;  
   }
 
-  .circle-div{
-    /* display: none; */
-  }
 
   .fade-in1{
     display: none;
-    /* width:max-content ; */
-    /* height: 200px;
-    width: 200px; */
   }
  
 
@@ -395,7 +421,14 @@ body, *{
     width: 450px;
     height: 300px;
   }
- 
+  .div3{
+    width: 70px;
+    height: 70px;
+  }
+  .div2{
+    width: 100px;
+    height: 100px;
+  }
 
   .pics {
     grid-template-columns: auto auto ;
@@ -426,8 +459,46 @@ body, *{
 .info p{
   padding:0 5%;
 }
+}
 
+
+
+@media screen and (max-width: 450px) {
+
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 900px; 
+}
+
+.div1{
+  left: 15%; 
+  bottom: 80px;
 
 }
 
+.header h1{
+  font-size: 40px;
+}
+.header h2{
+  font-size: 20px;
+}
+
+}
+
+@media screen and (max-width: 400px) {
+
+  #gallery div  {
+    height: 300px ;
+   }
+}
+
+@media screen and (max-width: 330px) {
+
+  #gallery div  {
+    height: 200px ;
+   }
+}
 

@@ -19,8 +19,10 @@ elements1.forEach(element => {
 });
 
 const picsDiv = document.querySelector(".pics");
+
 let arr = [];
-for (let i = 1; i < 158; i++){
+for (let i = 1; i < 9; i++){
+  function Allphotos(i){
    arr.push(`images/photo (${i}).jpg`)
    let pic = document.createElement("img");
    let modal = document.createElement("div");
@@ -30,6 +32,7 @@ for (let i = 1; i < 158; i++){
    modalImg.classList.add("modal-content")
    modalImg.setAttribute("id",`img${i}`)
    pic.setAttribute("id",`myImg${i}`)
+
    modal.classList.add("modal")
    spann.classList.add("close")
    spann.innerHTML="&times;";
@@ -53,10 +56,7 @@ for (let i = 1; i < 158; i++){
 spann.onclick = function() { 
   modal.style.display = "none";
   pic.style.display = "block";
-
 }
-
-
 
 
 function myFunction(x) {
@@ -67,38 +67,20 @@ function myFunction(x) {
   }
 }
 
-// Create a MediaQueryList object
 var x = window.matchMedia("(max-width: 700px)")
-
-// Call listener function at run time
 myFunction(x);
-
-// Attach listener function on state changes
 x.addEventListener("change", function() {
   myFunction(x);
 });
 
-
-
-
-
-
-
+}
+Allphotos(i)
  };
 
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-
-// var captionText = document.getElementById("caption");
-
-// Get the <span> element that closes the modal
-// var span.getElementsByClassName("close")[0];
-// When the user clicks on <span> (x), close the modal
 
 
-
-  
-
+ 
 
  /////////////////////////////////////////////
 
@@ -123,5 +105,87 @@ elements.forEach(element => {
 
 //////////////////////////////////////////////
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCt2HnBM2t0tvJNRnsk0FsDLLvxiB3-0Ac",
+  authDomain: "m-photo-16a53.firebaseapp.com",
+  databaseURL: "https://m-photo-16a53-default-rtdb.firebaseio.com",
+  projectId: "m-photo-16a53",
+  storageBucket: "m-photo-16a53.firebasestorage.app",
+  messagingSenderId: "30453910789",
+  appId: "1:30453910789:web:eeaddf56fe3f71496e3b6c"
+};
 
+firebase.initializeApp(firebaseConfig);
+
+const commentsDB = firebase.database().ref('comments')
+
+const savee = (name , mesg) =>{
+  var newcommentDB = commentsDB.push()
+
+  newcommentDB.set({
+      name: name,
+      mesg :mesg,
+  })
+}
+
+
+
+
+let Post = document.getElementById("post")
+let username = document.getElementById("username");
+let Chat = document.getElementById("chat");
+
+const Comments = document.querySelector(".comments");
+
+
+Post.addEventListener('submit', function (e) {
+  e.preventDefault();
+savee(username.value ,Chat.value)
+});
+
+
+
+commentsDB.on('child_added', (data) => {
+
+    let Commentt = document.createElement("div");
+    let commentlikediv = document.createElement("div");
+    let User = document.createElement("h1");
+    let text = document.createElement("p");
+    let likes = document.createElement("input");
+    let labelLike = document.createElement("label");
+  
+  likes.setAttribute("type","checkbox")
+  likes.setAttribute("id","like")
+  labelLike.setAttribute("for","like")
+  labelLike.innerHTML= '&#9829'
+  likes.classList.add("likes")
+  commentlikediv.classList.add("flex" ,"justify-between")
+  Commentt.classList.add("comment")
+  User.innerHTML= data.val().name;
+  text.innerHTML= data.val().mesg;  
+  commentlikediv.appendChild(User);
+  commentlikediv.appendChild(likes);
+  commentlikediv.appendChild(labelLike);
+  Commentt.appendChild(commentlikediv)
+  Commentt.appendChild(text);
+  Comments.appendChild(Commentt);
+
+    
+});
+
+
+
+
+/////////////////////////////////////////////
+
+
+const btnText = document.getElementById("myBtnn");
+
+btnText.addEventListener('click' ,()=>{
+  for (let i = 9; i < 159; i++){
+    Allphotos(i)
+     }
+   btnText.setAttribute('disabled', ''); 
+   btnText.style.display = "none";
+})
 
